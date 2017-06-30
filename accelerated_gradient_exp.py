@@ -61,12 +61,12 @@ if __name__ == "__main__":
     start_point = [150,75]
     step = 0.012
     discount = 0.9
-    # 看图：两次优化的轨迹完全一样
+    # From the figure,we can see the optimization path between two methods will be the same
     res1, x_arr1 = equivalent(start_point, step, g, discount)
     contour(X,Y,Z, x_arr1)
     res2, x_arr2 = nesterov(start_point, step, g, discount)
     contour(X,Y,Z, x_arr2)
-    # 看数值：两次优化的轨迹完全一样
+    #From seeing the numerical computing result：we can see the optimization path between two methods will be the same
     for x1, x2 in zip(x_arr1, x_arr2):
         print '%+15.08f == %+-15.08f: %s, \t %+15.08f == %+-15.08f: %s' % \
         (x1[0], x2[0], abs(x1[0] - x2[0]) < 1e-13, x1[1], x2[1], abs(x1[1] - x2[1]) < 1e-13)
